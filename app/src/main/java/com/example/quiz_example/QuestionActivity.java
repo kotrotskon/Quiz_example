@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView txtVw_question;
+    TextView txtVw_timer;
     Button btn_a;
     Button btn_b;
     Button btn_c;
@@ -34,6 +35,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_qustion);
 
         txtVw_question = findViewById(R.id.txtVw_question);
+        txtVw_timer = findViewById(R.id.txtVw_timer);
         btn_a = findViewById(R.id.btn_a);
         btn_a.setOnClickListener(this);
         btn_b = findViewById(R.id.btn_b);
@@ -54,7 +56,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         countDownTimer = new CountDownTimer(10000, 1000) {
             public void onTick(long millisUntilFinished) {
                 Log.d("TICK", "seconds remaining: " + millisUntilFinished / 1000);
-                //here you can have your logic to set text to edittext
+                txtVw_timer.setText(""+millisUntilFinished / 1000);
             }
 
             public void onFinish() {
